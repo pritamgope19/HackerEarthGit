@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vimeo App</title>
+    <script data-require="angular.js@1.1.5" data-semver="1.1.5" src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+    <link data-require="bootstrap-css@2.3.2" data-semver="2.3.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" />
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script> -->
+</head>
+
+<body>
+
+    <div ng-app="vimeoApp" ng-controller="vimeoAppCtrl">
+        <div class="container-fluid p-0" ng-model="responseData">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand logo"><img src="./assets/image/1280px-Vimeo_Logo.svg.png" alt="vimeo Logo"></a>
+
+            </nav>
+            <div class="searchBar p-2">
+                <div class="formSearch">
+                    <form class="form-inline" >
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search Transaction Details" aria-label="Search" ng-model="searchTxt" ng-keyup="searchTransaction(searchTxt)">
+                        <button class="btn btn-nav0-search my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="floatRight" ng-show="showPagination">
+                    <div data-pagination="" data-num-pages="numOfPages()"
+                        data-current-page="curPage" data-max-size="maxSize" data-boundary-links="true"></div>
+                </div>
+
+            </div>
+            <div class="detailContainer p-2">
+                <table ng-model="startFrom">
+                    <tr class="headerRow">
+                        <th>Account Number</th>
+                        <th class="sortItem">Date &nbsp;&nbsp;<span ng-click="sortItemAsn(filteredItems,true)">&#9650; &nbsp;&nbsp;</span><span ng-click="sortItemDes(filteredItems,true)">&#9660;</span></th>
+                        <th>Transaction Details</th>
+                        <th class="sortItem">Value Date &nbsp;&nbsp;<span ng-click="sortItemAsn(filteredItems,false,true)">&#9650; &nbsp;&nbsp;</span><span ng-click="sortItemDes(filteredItems,false,true)">&#9660;</span></th>
+                        <th>Withdrawal Amount</th>
+                        <th>Deposit Amount</th>
+                        <th class="sortItem">Balance Amount &nbsp;&nbsp;<span ng-click="sortItemAsn(filteredItems,false,false)">&#9650; &nbsp;&nbsp;</span><span ng-click="sortItemDes(filteredItems,false,false)">&#9660;</span></th>
+                    </tr>
+                    <tr ng-repeat="item in filteredItems">
+                        <td>{{item["Account No"]}}</td>
+                        <td>{{item.Date}}</td>
+                        <td>{{item["Transaction Details"]}}</td>
+                        <td>{{item["Value Date"]}}</td>
+                        <td>{{item["Withdrawal AMT"]}}</td>
+                        <td>{{item["Deposit AMT"]}}</td>
+                        <td>{{item["Balance AMT"]}}</td>
+                    </tr>
+                </table>
+                <div class="floatRight" ng-show="showPagination">
+                    <div data-pagination="" data-num-pages="numOfPages()"
+                        data-current-page="curPage" data-max-size="maxSize" data-boundary-links="true"></div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center" ng-show="showLoader">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/service.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

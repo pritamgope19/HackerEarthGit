@@ -1,0 +1,52 @@
+.logo>img{
+    width: 220px;
+    height: 50px;
+}
+.btn-nav0-search {
+    color: #13b8eb !important;
+    border-color: #13b8eb !important;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .headerRow{
+      background-color: #13b8eb;
+  }
+  .floatRight{
+      float: right;
+  }
+  .pagination ul>.active>a{
+    background-color: #13b8eb;
+    color: white;
+  }
+  .pagination ul>.active>a:hover{
+    background-color: #13b8eb;
+    color: white;
+  }
+  .pagination >ul>li> a{
+    padding: 6px 10px 6px 10px;
+    color: #13b8eb;
+  }
+  .searchBar>.floatLeft{
+    width: 50%;
+    float: left;
+  }
+  .formSearch{
+    width: 50%;
+    float: left;
+  }
+  .sortItem>span{
+    cursor: pointer;
+  }
