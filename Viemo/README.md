@@ -1,6 +1,6 @@
 # JS APP
 
-This project was generated with [Angular JS]version 1.4.03 
+This project was generated with [Angular JS]version 1.4.03  
 ## Development server
 
 
